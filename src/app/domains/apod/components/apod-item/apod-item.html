@@ -1,0 +1,25 @@
+<article class="apod-card">
+  <div class="apod-media-container">
+    @if (apodResponse()?.media_type === 'image') {
+      <img 
+        [src]="apodResponse()?.url" 
+        [alt]="apodResponse()?.title" 
+        class="apod-image"
+        loading="lazy">
+    } 
+  </div>
+
+  <header class="apod-header">
+    <h2 class="apod-title">{{ apodResponse()?.title }}</h2>
+    <time class="apod-date" [attr.datetime]="apodResponse()?.date">
+      {{ apodResponse()?.date| date:'longDate' }} • 
+        @if (apodResponse()?.copyright; as cp) {
+          &copy; {{ cp.slice(0, 20) }}
+    } @else {
+     Public Domain (NASA)
+    }
+    </time>
+  </header>
+
+
+</article>

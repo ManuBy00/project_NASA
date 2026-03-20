@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  --card-bg: #ffffff;
+  --text-main: #2c3e50;
+  --text-muted: #7f8c8d;
+  --accent: #0b3d91; /* Azul NASA */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+}
+
+.apod-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  height: 100%;
+}
+
+.apod-card:hover {
+  transform: translateY(-4px);
+}
+
+.apod-header {
+  padding: 1.5rem;
+}
+
+.apod-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.apod-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.apod-media-container {
+  position: relative;
+  width: 100%;
+  height: 250px; 
+  background: #000;
+  overflow: hidden;
+}
+
+.apod-image, .apod-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Evita deformar la imagen */
+}
+
+.apod-content {
+  padding: 1rem;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.apod-copyright {
+  font-style: italic;
+  color: var(--text-muted);
+}

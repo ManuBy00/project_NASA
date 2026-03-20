@@ -1,0 +1,57 @@
+/* features/shared/components/header/header.component.css */
+
+.main-header {
+  background: linear-gradient(to right, #000000, #360d5c);
+  color: white;
+  width: 100%;
+  padding: 15px 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-container {
+  margin: 0 ;   /* mx-auto */
+  display: flex;    /* flex */
+  gap: 0.75rem;     /* gap-3 */
+  align-items: center;
+}
+
+.header-icon {
+  width: 100%;  /* w-8 */
+  height: 60px; /* h-8 */
+}
+
+.header-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;    /* font-bold */
+  margin: 0;
+}
+
+.post-header{
+    height: 200px;
+    background-color: #111827;
+    padding: 25px;
+}
+
+.tittle {
+    display: inline; /* o inline-block */
+    margin-left: 15;
+    color: white;
+    font-size: 3rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    max-width: 600px; 
+    display: fl;
+    justify-content: flex-start;
+}
+
+.subtittle{
+  color: #94a3b8; /* El color gris azulado para el subtítulo */
+  font-size: 1.5rem;
+  font-weight: 400;
+  max-width: 800px;
+}
+
