@@ -8,4 +8,6 @@ export interface ApodResponse {
   thumbnail_url?: string;        
   copyright?: string;          
   service_version: string;
+  concept_tags: boolean;
+  concepts: string[];
 }

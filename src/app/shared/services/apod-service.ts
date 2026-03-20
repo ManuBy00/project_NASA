@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal, ɵbypassSanitizationTrustHtml } from '@angular/core';
 import { ApodResponse } from '../../domains/apod/models/ApodResponse';
 import { Observable } from 'rxjs';
 
@@ -30,6 +30,17 @@ export class ApodService {
         start_date: this.sixDaysAgo(),
         end_date: this.endDate().toISOString().split('T')[0],
         thumbs: true
+      }
+    });
+  }
+
+  getOneApod(date:string):Observable<ApodResponse>{
+    return this.http.get<ApodResponse>(`${this.baseUrl}`, {
+      params: {
+        api_key: this.apikey,
+        date: date,
+        thumbs: true,
+        concept_tags: true
       }
     });
   }

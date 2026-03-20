@@ -1,0 +1,48 @@
+@if (apod(); as data) {
+  
+    
+    <header class="apod-top-bar">
+      <a [routerLink]= "['/']" class="back-link">
+        Back to gallery
+      </a>
+    </header>
+
+    <main class="apod-main-container">
+      
+      <section class="apod-media-column">
+        <div class="apod-media-wrapper">
+          @if (data.media_type === 'image') {
+            <img 
+              [src]="data.hdurl || data.url" 
+              [alt]="data.title" 
+              class="apod-image">
+          } @else if (data.media_type === 'video') {
+            <iframe 
+              [src]="data.url"
+              class="apod-video"
+              frameborder="0" 
+              allowfullscreen>
+            </iframe>
+          }
+        </div>
+      </section>
+
+      <section class="apod-info-column">
+        <h1 class="apod-title">{{ data.title }}</h1>
+
+        <div class="apod-description-box">
+          <h2 class="description-title">Description</h2>
+          <div class="description-content">
+            <p>{{ data.explanation }}</p>
+          </div>
+          <br>
+          <p>Date: {{data.date}}</p>
+          <p>Author: {{data.copyright}}</p>
+        </div>
+      </section>
+
+    </main>
+ 
+} @else {
+  <div class="apod-loading">Cargando...</div>
+}

@@ -1,9 +1,9 @@
 :host {
   display: block;
-  --card-bg: #ffffff;
+  --card-bg: #111827;
   --text-main: #2c3e50;
   --text-muted: #7f8c8d;
-  --accent: #0b3d91; /* Azul NASA */
+  --accent: white; /* Azul NASA */
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --radius: 12px;
 }
@@ -55,7 +55,7 @@
 
 .apod-content {
   padding: 1rem;
-  
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
@@ -63,4 +63,11 @@
 .apod-copyright {
   font-style: italic;
   color: var(--text-muted);
+}
+
+a {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit;        /* Hereda el color del texto del padre (negro, blanco, etc.) */
+  cursor: pointer;       /* Se asegura de que aparezca la manita al pasar el ratón */
+  outline: none;         /* Quita el borde resaltado al hacer clic (opcional) */
 }

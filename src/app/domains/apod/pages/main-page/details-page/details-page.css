@@ -1,0 +1,155 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  --bg-panel: #1a0b2e; /* Púrpura muy oscuro como la imagen */
+  --bg-description: rgba(255, 255, 255, 0.05); /* Ligeramente transparente */
+  --text-muted: #b0b0b0;
+  --radius-lg: 20px;
+}
+
+.apod-details-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Barra Superior */
+.apod-top-bar {
+  background-color: #000; 
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background: linear-gradient(135deg, #000 0%, var(--bg-panel) 100%);
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.back-link:hover {
+  opacity: 0.7;
+}
+
+.back-link .material-icons {
+  font-size: 1.2rem;
+}
+
+/* Contenedor Principal (Layout Dividido) */
+.apod-main-container {
+  display: flex;
+  flex: 1;
+  padding: 2rem;
+  gap: 2rem;
+  /* Fondo degradado púrpura como la imagen 👇 */
+  
+}
+
+/* Columna Izquierda */
+.apod-media-column {
+  flex: 1.2; /* Un poco más ancha que la de texto */
+  display: flex;
+  align-items: flex-start; /* No estirar verticalmente */
+  
+}
+
+.apod-media-wrapper {
+  width: 100%;
+  position: sticky; /* Se queda fija al hacer scroll */
+  top: 2rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  background: #000;
+}
+
+.apod-image, .apod-video {
+  width: 100%;
+  display: block;
+  object-fit: contain; /* Para ver la imagen HD completa */
+  max-height: 80vh; /* No más alta que la pantalla */
+}
+
+/* Columna Derecha */
+.apod-info-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  
+}
+
+.apod-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.apod-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meta-item .material-icons {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Caja de Descripción */
+.apod-description-box {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(135deg, #000 0%, var(--bg-panel) 100%);
+}
+
+.description-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.description-content {
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .apod-main-container {
+    flex-direction: column;
+  }
+  
+  .apod-media-wrapper {
+    position: static;
+  }
+  
+  .apod-title {
+    font-size: 2rem;
+  }
+
+  a {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit;        /* Hereda el color del texto del padre (negro, blanco, etc.) */
+  cursor: pointer;       /* Se asegura de que aparezca la manita al pasar el ratón */
+  outline: none;         /* Quita el borde resaltado al hacer clic (opcional) */
+}
+}
