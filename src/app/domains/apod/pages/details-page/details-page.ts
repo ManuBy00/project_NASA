@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
-import { ApodService } from '../../../../../shared/services/apod-service';
-import { ApodResponse } from '../../../models/ApodResponse';
+import { ApodService } from '../../../../shared/services/apod-service';
+import { ApodResponse } from '../../models/ApodResponse';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { getSafePropertyAccessString } from '@angular/compiler';
 import { DatePipe } from '@angular/common';
+import { FavService } from '../../../../shared/services/fav-service';
 
 @Component({
   selector: 'app-details-page',
@@ -15,6 +16,7 @@ export class DetailsPage {
   movieService = inject(ApodService);
 
   apod = signal<ApodResponse| null>(null);
+  fav = inject(FavService);
 
   constructor(private route: ActivatedRoute){
 
@@ -33,8 +35,12 @@ export class DetailsPage {
     this.movieService.getOneApod(date).subscribe
     (newApod => {
       this.apod.set(newApod)
-    })
-    
+    }) 
+  }
+
+  addToFavourites(){
+    const apodToAdd = this.apod();
+    if (apodToAdd) this.fav.addFav(apodToAdd);
   }
   
 }

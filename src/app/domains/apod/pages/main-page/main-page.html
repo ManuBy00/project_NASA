@@ -1,9 +1,9 @@
 <app-header></app-header>
 <br>
 
-<div class="entry-gallery">
+<div class="gallery">
     @for (entry of entries(); track $index) {
     <app-apod-item [apodResponse]="entry"></app-apod-item>
-}
+    }
 </div>
 

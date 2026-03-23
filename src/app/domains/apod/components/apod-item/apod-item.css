@@ -17,6 +17,7 @@
   flex-direction: column;
   transition: transform 0.2s ease;
   height: 100%;
+  position: relative;
 }
 
 .apod-card:hover {
@@ -66,8 +67,15 @@
 }
 
 a {
-  text-decoration: none; /* Quita el subrayado */
-  color: inherit;        /* Hereda el color del texto del padre (negro, blanco, etc.) */
-  cursor: pointer;       /* Se asegura de que aparezca la manita al pasar el ratón */
-  outline: none;         /* Quita el borde resaltado al hacer clic (opcional) */
+  display: block;    /* 👈 VITAL: Hace que el link sea una "caja" real */
+  height: 100%;      /* Que ocupe todo el alto de la card */
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  
+  /* Asegura que el link esté por encima de cualquier otro elemento interno */
+  position: relative;
+  z-index: 5; 
 }
+

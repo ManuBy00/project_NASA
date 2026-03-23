@@ -7,11 +7,12 @@
   padding: 15px 20px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* shadow-lg */
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  
+  
 }
 
 .header-container {
-  margin: 0 ;   /* mx-auto */
   display: flex;    /* flex */
   gap: 0.75rem;     /* gap-3 */
   align-items: center;
@@ -53,5 +54,19 @@
   font-size: 1.5rem;
   font-weight: 400;
   max-width: 800px;
+}
+
+nav{
+  align-items: center;
+  padding-inline-start: 25px;
+  display: flex;      
+  gap: 20px;        
+
+}
+
+a {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit;        /* Hereda el color del texto del padre (negro, blanco, etc.) */
+  cursor: pointer;       /* Se asegura de que aparezca la manita al pasar el ratón */
 }
 

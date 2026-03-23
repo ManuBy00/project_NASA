@@ -1,6 +1,5 @@
 @if (apod(); as data) {
   
-    
     <header class="apod-top-bar">
       <a [routerLink]= "['/']" class="back-link">
         Back to gallery
@@ -25,6 +24,7 @@
             </iframe>
           }
         </div>
+      
       </section>
 
       <section class="apod-info-column">
@@ -39,8 +39,9 @@
           <p>Date: {{data.date}}</p>
           <p>Author: {{data.copyright}}</p>
         </div>
+        <button class="btn-favourite" (click)="addToFavourites()">Add to favourites</button>
       </section>
-
+  
     </main>
  
 } @else {

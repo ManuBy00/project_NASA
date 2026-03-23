@@ -21,6 +21,7 @@
   padding: 1rem 2rem;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   background: linear-gradient(135deg, #000 0%, var(--bg-panel) 100%);
+  
 }
 
 .back-link {
@@ -37,9 +38,6 @@
   opacity: 0.7;
 }
 
-.back-link .material-icons {
-  font-size: 1.2rem;
-}
 
 /* Contenedor Principal (Layout Dividido) */
 .apod-main-container {
@@ -47,7 +45,6 @@
   flex: 1;
   padding: 2rem;
   gap: 2rem;
-  /* Fondo degradado púrpura como la imagen 👇 */
   
 }
 
@@ -56,7 +53,8 @@
   flex: 1.2; /* Un poco más ancha que la de texto */
   display: flex;
   align-items: flex-start; /* No estirar verticalmente */
-  
+  flex-direction: column;
+
 }
 
 .apod-media-wrapper {
@@ -67,6 +65,7 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   background: #000;
+  
 }
 
 .apod-image, .apod-video {
@@ -131,6 +130,38 @@
   color: var(--text-muted);
 }
 
+.btn-favourite {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 12px 24px;
+  min-width: 240px;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px; /* Si var(--radius-lg) no carga, esto asegura que funcione */
+  background: linear-gradient(135deg, rgba(106, 27, 154, 0.4) 0%, rgba(11, 61, 145, 0.4) 100%);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+/* Efecto al pasar el ratón */
+.btn-favourite:hover {
+  background: linear-gradient(135deg, rgba(106, 27, 154, 0.7) 0%, rgba(11, 61, 145, 0.7) 100%);
+  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Si ya es favorito, podemos darle un toque diferente */
+.btn-favourite .material-icons {
+  color: #ff4081; /* Rosa brillante */
+}
+
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -141,15 +172,14 @@
   .apod-media-wrapper {
     position: static;
   }
-  
-  .apod-title {
-    font-size: 2rem;
-  }
-
   a {
   text-decoration: none; /* Quita el subrayado */
   color: inherit;        /* Hereda el color del texto del padre (negro, blanco, etc.) */
   cursor: pointer;       /* Se asegura de que aparezca la manita al pasar el ratón */
   outline: none;         /* Quita el borde resaltado al hacer clic (opcional) */
 }
+  .apod-title {
+  font-size: 2rem;
+}
+
 }
