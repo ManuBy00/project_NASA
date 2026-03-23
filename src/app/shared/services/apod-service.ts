@@ -21,7 +21,7 @@ export class ApodService {
   )
 
 
-//ejemplo: https://api.nasa.gov/planetary/apod?api_key=zdUP8ElJv1cehFM0rsZVSQN7uBVxlDnu4diHlLSb&start_date=2023-12-25&end_date=2023-12-31&thumbs=True
+
   
   getLastSixImages():Observable<ApodResponse[]>{
     return this.http.get<ApodResponse[]>(`${this.baseUrl}`, {

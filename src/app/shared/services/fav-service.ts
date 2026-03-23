@@ -8,38 +8,57 @@ export class FavService {
   private storageKey = 'nasa_favs';
   favorites = signal<ApodResponse[]>(this.loadFromStorage());
 
+  /**
+   * si detecta cambio en el signal, actualiza el localstorage con la lista de favoritos
+   */
   constructor(){
     effect(() => {
       localStorage.setItem(this.storageKey, JSON.stringify(this.favorites()))
   })
   }
   
-    loadFromStorage(): ApodResponse[] {
-    try {
+  /**
+   * carga la list de apods de local storage
+   * @returns 
+   */
+  loadFromStorage(): ApodResponse[] {
+    
     const data = localStorage.getItem(this.storageKey);
 
-    // 1. Si no hay nada (null) o es la palabra "undefined", devolvemos array vacío
+    // Si es null o undefined, devolvemos array vacío
     if (!data || data === 'undefined') {
       return [];
     }
 
-    // 2. Intentamos parsear
+    // devolvemos la info formateada a json
     return JSON.parse(data);
     
-  } catch (e) {
-    // 3. Si el JSON está mal formado, limpiamos y devolvemos vacío
-    console.error("Error al parsear favoritos, reseteando...", e);
-    return [];
-  }
   }
 
+  /**
+   *  añade el apod recibido a la lista de favoritos
+   * @param apod 
+   */
   addFav(apod:ApodResponse){
     const date = apod.date;
-    if(!this.favorites().some(f => f.date === date)){
-      const current = this.favorites();
+    const current = this.favorites();
+    //si no se encuentra un apod con la misma fecha, se añade a al lista
+    if(!this.isFavourite(apod)){
       this.favorites.set([...current, apod]);
       console.log("añadido a la lista")
-    } 
+    } else {
+      // SI YA EXISTE: Filtramos la lista para quedarnos con todos MENOS con este
+      this.favorites.set(current.filter( f => f.date !== date ));
+    }
   }
 
+  isFavourite(apod: ApodResponse): boolean{
+    const date = apod.date;
+    if(this.favorites().some(f => f.date === date)){
+        return true;
+    }else{
+      return false;
+    }
+
+  }
 }

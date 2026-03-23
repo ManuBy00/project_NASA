@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ApodService } from '../../../../shared/services/apod-service';
 import { ApodResponse } from '../../models/ApodResponse';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -14,14 +14,31 @@ import { FavService } from '../../../../shared/services/fav-service';
 })
 export class DetailsPage {
   movieService = inject(ApodService);
+  fav = inject(FavService);
+
 
   apod = signal<ApodResponse| null>(null);
-  fav = inject(FavService);
+  //variables de estado
+  isLoading = signal<boolean>(false);
+  errorMessage = signal<string | null >(null);
+
+  isFavourite = computed(() => {
+    const apod = this.apod()
+    if (!apod){
+      return false;
+    }else{
+      return this.fav.isFavourite(apod);
+    }
+  })
+
 
   constructor(private route: ActivatedRoute){
 
   }
 
+  /**
+   * recoge el parámetro date de la url y llama al método para cargar el apod
+   */
   ngOnInit(){
     this.route.params.subscribe(params => {
       const date = params['date']
@@ -31,13 +48,28 @@ export class DetailsPage {
     })
   }
 
+  /**
+   * obtiene el apod seleccionado usando la fecha como id y lo carga en pantalla
+   * @param date 
+   */
   getApod(date:string){
-    this.movieService.getOneApod(date).subscribe
-    (newApod => {
-      this.apod.set(newApod)
-    }) 
-  }
+    this.isLoading.set(true);
+    this.movieService.getOneApod(date).subscribe({
+      next: (newApod) => {
+        this.apod.set(newApod);
+        this.isLoading.set(false);
+      },
 
+      error: (err) => {
+        console.error('Hubo un error trayendo la imagen', err);
+        this.isLoading.set(false);
+      }
+    })
+  };  
+
+/**
+ * añade un apod a favoritos a través del favService
+ */
   addToFavourites(){
     const apodToAdd = this.apod();
     if (apodToAdd) this.fav.addFav(apodToAdd);

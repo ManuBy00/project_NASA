@@ -10,6 +10,14 @@
   --radius-lg: 20px;
 }
 
+.loading{
+  position: fixed;      
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 0;  
+}
+
 .apod-details-page {
   display: flex;
   flex-direction: column;
@@ -162,24 +170,11 @@
   color: #ff4081; /* Rosa brillante */
 }
 
-
-/* Responsive */
-@media (max-width: 992px) {
-  .apod-main-container {
-    flex-direction: column;
-  }
-  
-  .apod-media-wrapper {
-    position: static;
-  }
-  a {
+a {
   text-decoration: none; /* Quita el subrayado */
   color: inherit;        /* Hereda el color del texto del padre (negro, blanco, etc.) */
   cursor: pointer;       /* Se asegura de que aparezca la manita al pasar el ratón */
   outline: none;         /* Quita el borde resaltado al hacer clic (opcional) */
-}
-  .apod-title {
-  font-size: 2rem;
-}
+} 
 
-}
+
