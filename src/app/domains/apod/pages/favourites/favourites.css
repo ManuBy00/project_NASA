@@ -7,6 +7,8 @@
     margin-bottom: 2.5rem;
 }
 
+
+
 /* 2. TABLET (Desde 768px): 2 columnas exactamente iguales */
 @media (min-width: 768px) {
   .gallery {

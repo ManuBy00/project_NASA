@@ -7,6 +7,14 @@
     margin-bottom: 2.5rem;
 }
 
+.loading{
+    position: fixed;         /* Lo ancla a la pantalla del navegador, no al componente */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2.5rem 0;
+}
+
 /* 2. TABLET (Desde 768px): 2 columnas exactamente iguales */
 @media (min-width: 768px) {
   .gallery {
@@ -19,13 +27,4 @@
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-.loading{
-    position: fixed;         /* Lo ancla a la pantalla del navegador, no al componente */
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 2.5rem 0;
-    
 }
