@@ -2,7 +2,6 @@
   display: block;
   min-height: 100vh;
   color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
   --bg-panel: #1a0b2e; /* El púrpura oscuro de tu diseño */
   --text-muted: #b0b0b0;
   --radius-lg: 20px;
