@@ -1,22 +1,19 @@
-<app-header></app-header>
-<br>
+<app-header phTittle="Explore the depths of the galaxy" phSubtittle="New images every day!"></app-header> 
+
 
 <div class="gallery">
     @if(isLoading()){
     <div class="loading">
-        <div>   
-            <svg width="100" height="100" viewBox="0 0 50 50">
+    <svg width="100" height="100" viewBox="0 0 50 50">
         <circle cx="25" cy="25" r="20" fill="none" stroke="#0b3d91" stroke-width="4" stroke-dasharray="80" stroke-dashoffset="60">
             <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 25 25;360 25 25"/>
         </circle>
     </svg>
-
-        </div>
   </div>
     }
 
     @if (errorMessage()) {
-        <p>{{errorMessage()}}/p>
+        <p>{{errorMessage()}}</p>
     }
     @for (entry of entries(); track $index) {
     <app-apod-item [apodResponse]="entry"></app-apod-item>

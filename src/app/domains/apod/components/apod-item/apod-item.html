@@ -7,7 +7,16 @@
         [alt]="apodResponse()?.title" 
         class="apod-image"
         loading="lazy">
-    } 
+    }@else{
+        <video
+        [src]="apodResponse()?.url" 
+          class="apod-media" 
+          muted 
+          playsinline 
+          preload="metadata">
+          
+        </video>
+    }
   </div>
 
   <header class="apod-header">

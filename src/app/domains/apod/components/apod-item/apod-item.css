@@ -6,6 +6,7 @@
   --accent: white; /* Azul NASA */
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --radius: 12px;
+  max-width: 100%;
 }
 
 .apod-card {
@@ -17,6 +18,7 @@
   flex-direction: column;
   transition: transform 0.2s ease;
   height: 100%;
+  width: 100%;
   position: relative;
 }
 
@@ -33,6 +35,10 @@
   font-size: 1.25rem;
   color: var(--accent);
   line-height: 1.2;
+
+  word-wrap: break-word;
+  overflow-wrap: anywhere; 
+  white-space: normal;
 }
 
 .apod-date {
@@ -43,15 +49,14 @@
 .apod-media-container {
   position: relative;
   width: 100%;
-  height: 250px; 
   background: #000;
-  overflow: hidden;
+  overflow: hidden; /* si la imagen es más grande de 250px, se corta */
 }
 
 .apod-image, .apod-video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Evita deformar la imagen */
+  object-fit: cover; /* Evita deformar la imagen al ajustarse*/
 }
 
 .apod-content {
@@ -67,7 +72,7 @@
 }
 
 a {
-  display: block;    /* 👈 VITAL: Hace que el link sea una "caja" real */
+  display: block;  
   height: 100%;      /* Que ocupe todo el alto de la card */
   text-decoration: none;
   color: inherit;
@@ -77,5 +82,19 @@ a {
   /* Asegura que el link esté por encima de cualquier otro elemento interno */
   position: relative;
   z-index: 5; 
+}
+
+.apod-media-container {
+  position: relative; /* Para el icono de video */
+  width: 100%;
+  aspect-ratio: 16/9; /*antes height: 250px. se ha cambiado a aspect-radio para que se adapte a diferentes tamaños y no sean 250px rígidos */
+  overflow: hidden;
+}
+
+.apod-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Importante para que el video no se deforme */
+  display: block;
 }
 

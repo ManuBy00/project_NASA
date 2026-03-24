@@ -1,10 +1,11 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, Sanitizer, signal } from '@angular/core';
 import { ApodService } from '../../../../shared/services/apod-service';
 import { ApodResponse } from '../../models/ApodResponse';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { getSafePropertyAccessString } from '@angular/compiler';
 import { DatePipe } from '@angular/common';
 import { FavService } from '../../../../shared/services/fav-service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-details-page',
@@ -15,6 +16,7 @@ import { FavService } from '../../../../shared/services/fav-service';
 export class DetailsPage {
   movieService = inject(ApodService);
   fav = inject(FavService);
+  private sanitizer = inject(DomSanitizer);
 
 
   apod = signal<ApodResponse| null>(null);
@@ -30,6 +32,11 @@ export class DetailsPage {
       return this.fav.isFavourite(apod);
     }
   })
+
+  safeVideoUrl = computed(() => {
+    const url = this.apod()?.url;
+    return url ? this.sanitizer.bypassSecurityTrustResourceUrl(url) : null;
+  });
 
 
   constructor(private route: ActivatedRoute){

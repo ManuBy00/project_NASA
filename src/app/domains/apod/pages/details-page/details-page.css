@@ -4,8 +4,8 @@
   
   color: #fff;
   font-family: system-ui, -apple-system, sans-serif;
-  --bg-panel: #1a0b2e; /* Púrpura muy oscuro como la imagen */
-  --bg-description: rgba(255, 255, 255, 0.05); /* Ligeramente transparente */
+  --bg-panel: #1a0b2e; /* Púrpura muy oscuro */
+  --bg-description: rgba(255, 255, 255, 0.05); 
   --text-muted: #b0b0b0;
   --radius-lg: 20px;
 }
@@ -47,7 +47,7 @@
 }
 
 
-/* Contenedor Principal (Layout Dividido) */
+/* Contenedor Principal  */
 .apod-main-container {
   display: flex;
   flex: 1;
@@ -83,7 +83,7 @@
   max-height: 80vh; /* No más alta que la pantalla */
 }
 
-/* Columna Derecha */
+
 .apod-info-column {
   flex: 1;
   display: flex;
@@ -119,7 +119,7 @@
   color: rgba(255,255,255,0.5);
 }
 
-/* Caja de Descripción */
+
 .apod-description-box {
   padding: 1.5rem;
   border-radius: var(--radius-lg);
@@ -151,30 +151,32 @@
   color: #fff;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 12px; /* Si var(--radius-lg) no carga, esto asegura que funcione */
+  border-radius: 12px; 
   background: linear-gradient(135deg, rgba(106, 27, 154, 0.4) 0%, rgba(11, 61, 145, 0.4) 100%);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   margin-top: 20px;
 }
 
-/* Efecto al pasar el ratón */
+
 .btn-favourite:hover {
   background: linear-gradient(135deg, rgba(106, 27, 154, 0.7) 0%, rgba(11, 61, 145, 0.7) 100%);
   transform: scale(1.02);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Si ya es favorito, podemos darle un toque diferente */
-.btn-favourite .material-icons {
-  color: #ff4081; /* Rosa brillante */
-}
 
 a {
-  text-decoration: none; /* Quita el subrayado */
-  color: inherit;        /* Hereda el color del texto del padre (negro, blanco, etc.) */
-  cursor: pointer;       /* Se asegura de que aparezca la manita al pasar el ratón */
-  outline: none;         /* Quita el borde resaltado al hacer clic (opcional) */
+  text-decoration: none; 
+  color: inherit;        
+  cursor: pointer;       
+  outline: none;         
 } 
+
+@media (max-width: 600px){
+  .apod-main-container {
+    flex-direction: column;
+  }
+}
 
 

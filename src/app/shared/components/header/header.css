@@ -1,15 +1,12 @@
-/* features/shared/components/header/header.component.css */
 
 .main-header {
   background: linear-gradient(to right, #000000, #360d5c);
   color: white;
   width: 100%;
-  padding: 15px 20px;
+  padding: 1rem 1.2rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* shadow-lg */
   display: flex;
   align-items: center;
-  
-  
 }
 
 .header-container {
@@ -20,31 +17,31 @@
 
 .header-icon {
   width: 100%;  /* w-8 */
-  height: 60px; /* h-8 */
+  height: 4rem; /* h-8 */
 }
 
 .header-title {
+  display: none;
   font-size: 1.875rem; /* text-3xl */
   font-weight: 700;    /* font-bold */
   margin: 0;
 }
 
 .post-header{
-    height: 200px;
+    display: none;
+    height: 11rem;
     background-color: #111827;
-    padding: 25px;
+    padding: 1.3rem;
 }
 
 .tittle {
     display: inline; /* o inline-block */
-    margin-left: 15;
     color: white;
     font-size: 3rem;
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    max-width: 600px; 
     display: fl;
     justify-content: flex-start;
 }
@@ -53,20 +50,31 @@
   color: #94a3b8; /* El color gris azulado para el subtítulo */
   font-size: 1.5rem;
   font-weight: 400;
-  max-width: 800px;
 }
 
 nav{
   align-items: center;
-  padding-inline-start: 25px;
+  padding-inline-start: 1.8rem;
   display: flex;      
-  gap: 20px;        
+  gap: 1rem;        
 
 }
 
 a {
-  text-decoration: none; /* Quita el subrayado */
-  color: inherit;        /* Hereda el color del texto del padre (negro, blanco, etc.) */
-  cursor: pointer;       /* Se asegura de que aparezca la manita al pasar el ratón */
+  text-decoration: none; 
+  color: inherit;       
+  cursor: pointer;       
 }
 
+
+@media (min-width: 728px) {
+  .post-header {
+    display: block; /* Aparece a partir de tablets y ordenadores */
+  }
+
+  .header-title{
+    display: inline;
+  }
+
+  
+}

@@ -18,10 +18,20 @@
       
       <section class="apod-media-column">
         <div class="apod-media-wrapper">
+          @if (data.media_type == "video") {
+          <video 
+          [src]="data.url" 
+          class="apod-video" 
+          controls 
+          playsinline>
+        Tu navegador no soporta el video.
+      </video>
+          }@else {
             <img 
               [src]="data.hdurl || data.url" 
               [alt]="data.title" 
               class="apod-image">
+          }
         </div>
       
       </section>

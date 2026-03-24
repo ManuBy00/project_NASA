@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 
@@ -9,4 +9,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  phTittle = input<string>("")
+  phSubtittle = input<string>("")
+}
