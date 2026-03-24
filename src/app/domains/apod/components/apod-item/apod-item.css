@@ -35,7 +35,7 @@
   font-size: 1.25rem;
   color: var(--accent);
   line-height: 1.2;
-
+  /* para que el titulo no ensanche las cards*/
   word-wrap: break-word;
   overflow-wrap: anywhere; 
   white-space: normal;
@@ -98,3 +98,12 @@ a {
   display: block;
 }
 
+@media (max-width: 600px){
+  .apod-copyright, .apod-date{
+    font-size: 0.8rem;
+  }
+
+  .apod-title{
+    font-size: 1rem;
+  }
+}
