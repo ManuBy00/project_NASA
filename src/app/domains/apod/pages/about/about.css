@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  --bg-panel: #1a0b2e; /* El púrpura oscuro de tu diseño */
+  --text-muted: #b0b0b0;
+  --radius-lg: 20px;
+}
+
+.about-container {
+  max-width: 800px; /* Ancho de lectura cómodo */
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacio entre las cajas */
+}
+
+.apod-top-bar {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #000 0%, var(--bg-panel) 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.apod-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left; /* Alineado a la izquierda como en los detalles */
+}
+
+/* --- ESTILO EXACTO DE TU IMAGEN --- */
+.apod-description-box {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(135deg, #000 0%, var(--bg-panel) 100%);
+}
+
+.description-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: #fff; /* Título en blanco brillante */
+}
+
+.description-content {
+  line-height: 1.7;
+  color: var(--text-muted); /* Texto en gris suave */
+}
+
+/* Link de retroceso */
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  opacity: 0.7;
+}

@@ -8,11 +8,7 @@
   </div>
 }
 @if (apod(); as data) {
-    <header class="apod-top-bar">
-      <a [routerLink]= "['/']" class="back-link">
-        Back to gallery
-      </a>
-    </header>
+    <app-header></app-header>
 
     <main class="apod-main-container">
       
@@ -24,7 +20,6 @@
           class="apod-video" 
           controls 
           playsinline>
-        Tu navegador no soporta el video.
       </video>
           }@else {
             <img 
@@ -33,12 +28,10 @@
               class="apod-image">
           }
         </div>
-      
       </section>
 
       <section class="apod-info-column">
         <h1 class="apod-title">{{ data.title }}</h1>
-
         <div class="apod-description-box">
           <h2 class="description-title">Description</h2>
           <div class="description-content">

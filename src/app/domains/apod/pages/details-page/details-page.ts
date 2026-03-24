@@ -6,24 +6,26 @@ import { getSafePropertyAccessString } from '@angular/compiler';
 import { DatePipe } from '@angular/common';
 import { FavService } from '../../../../shared/services/fav-service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Header } from '../../../../shared/components/header/header';
 
 @Component({
   selector: 'app-details-page',
-  imports: [RouterLink],
+  imports: [RouterLink, Header],
   templateUrl: './details-page.html',
   styleUrl: './details-page.css',
 })
 export class DetailsPage {
   movieService = inject(ApodService);
   fav = inject(FavService);
-  private sanitizer = inject(DomSanitizer);
 
 
+  //apod del que se piden los detalles
   apod = signal<ApodResponse| null>(null);
   //variables de estado
   isLoading = signal<boolean>(false);
   errorMessage = signal<string | null >(null);
 
+  //Computed que comprueba si el apod está en favoritos. Devuelve un boolean.
   isFavourite = computed(() => {
     const apod = this.apod()
     if (!apod){
@@ -32,11 +34,6 @@ export class DetailsPage {
       return this.fav.isFavourite(apod);
     }
   })
-
-  safeVideoUrl = computed(() => {
-    const url = this.apod()?.url;
-    return url ? this.sanitizer.bypassSecurityTrustResourceUrl(url) : null;
-  });
 
 
   constructor(private route: ActivatedRoute){
@@ -57,7 +54,7 @@ export class DetailsPage {
 
   /**
    * obtiene el apod seleccionado usando la fecha como id y lo carga en pantalla
-   * @param date 
+   * @param date apod seleccionado
    */
   getApod(date:string){
     this.isLoading.set(true);
