@@ -4,6 +4,8 @@ const { defineConfig } = require('eslint/config');
 const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
 
+
+
 module.exports = defineConfig([
   {
     files: ['**/*.ts'],

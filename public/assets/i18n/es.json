@@ -1,0 +1,41 @@
+{
+  "COMMON": {
+    
+  },
+
+  "HEADER": {
+    "WEB_TITTLE": "GalaxyView",
+
+    "HOME_NAV": "Inicio",
+    "FAVOURITES_NAV": "Favoritos",
+    "ABOUT_NAV": "Acerca de",
+
+    "POST_TITTLE_MAIN": "Explora las profundidades de la galaxia",
+    "POST_SUBTITLE_MAIN": "¡Nuevas imágenes cada día!",
+    "POST_TITTLE_FAVOURITES": "Revisa tus imágenes favoritas",
+    "POST_SUBTITLE_FAVOURITES": "Puedes añadir una imagen APOD a favoritos para no perderla después de 6 días"
+  },
+
+  "GALLERY": {
+    
+  },
+
+  "ABOUT": {
+    "TITTLE_1": "La Misión 🚀",
+    "TEXT_1": "Este es un proyecto de divulgación astronómica impulsado por la Imagen Astronómica del Día (APOD) de la NASA. Nuestro objetivo es acortar la brecha entre los complejos datos espaciales y las mentes curiosas, haciendo que el cosmos sea accesible para todos, un descubrimiento a la vez.",
+
+    "TITTLE_2": "La Regla de los 6 Días 🪐",
+    "TEXT_2": "El espacio es vasto y en constante cambio. En nuestra galería, las imágenes solo están disponibles durante una breve ventana de 6 días antes de desaparecer para dejar espacio a nuevas maravillas. ¡El universo no espera, y nuestro catálogo tampoco!",
+
+    "TITTLE_3": "Favoritos ⭐",
+    "TEXT_3": " ¿No quieres perder una pieza específica del cosmos? Tienes el poder de marcar como favoritas tus entradas más queridas. Esto te permite guardarlas permanentemente en tu colección personal, incluso después de que hayan abandonado la galería principal."
+  },
+
+  "DETAILS": {
+    "DESC": "Descripción",
+    "DATE": "Fecha: ",
+    "AUTHOR": "Autor: ",
+    "FAV_ADD_BTN": "Añadir a favoritos",
+    "FAV_REMOVE_BTN": "Eliminar de favoritos"
+  }
+}

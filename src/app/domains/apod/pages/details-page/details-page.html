@@ -31,18 +31,18 @@
       <section class="apod-info-column">
         <h1 class="apod-title">{{ data.title }}</h1>
         <div class="apod-description-box">
-          <h2 class="description-title">Description</h2>
+          <h2 class="description-title">{{ "DETAILS.DESC" | translate }}</h2>
           <div class="description-content">
             <p>{{ data.explanation }}</p>
           </div>
           <br>
-          <p>Date: {{data.date}}</p>
-          <p>Author: {{data.copyright}}</p>
+          <p>{{ "DETAILS.DATE" | translate }} {{data.date}}</p>
+          <p>{{ "DETAILS.AUTHOR" | translate }} {{data.copyright}}</p>
         </div>
         @if (isFavourite()) {
-          <button class="btn-favourite" (click)="addToFavourites()">Remove from favourites</button>
+          <button class="btn-favourite" (click)="addToFavourites()"> {{ "DETAILS.FAV_REMOVE_BTN" | translate }} </button>
         }@else{
-          <button class="btn-favourite" (click)="addToFavourites()">Add to favourites</button>
+          <button class="btn-favourite" (click)="addToFavourites()">{{ "DETAILS.FAV_ADD_BTN" | translate }}</button>
         }
         
       </section>

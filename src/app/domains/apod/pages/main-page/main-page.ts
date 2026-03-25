@@ -4,19 +4,21 @@ import { ApodService } from '../../../../shared/services/apod-service';
 import { ApodResponse } from '../../models/ApodResponse';
 import { ApodItem } from '../../components/apod-item/apod-item';
 import { HeaderService } from '../../../../shared/services/header-service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 
 
 @Component({
   selector: 'app-main-page',
-  imports: [Header, ApodItem],
+  imports: [ApodItem],
   templateUrl: './main-page.html',
   styleUrl: './main-page.css',
 })
 export class MainPage {
   private apodService = inject(ApodService);
   private headerService = inject(HeaderService)
+  private translateService = inject(TranslateService)
 
   entries = signal<ApodResponse[]>([]);
   isLoading = signal<boolean>(false);
@@ -29,7 +31,13 @@ export class MainPage {
 
   //configura los inputs del header
   ngOnInit(): void {
-    this.headerService.setHeaderInputs("Explore the depths of the galaxy","New images every day!")
+    this.translateService.stream([
+      'HEADER.POST_TITTLE_MAIN',
+      'HEADER.POST_SUBTITLE_MAIN'
+    ]).subscribe(() => {
+       this.headerService.setHeaderInputs(this.translateService.instant('HEADER.POST_TITTLE_MAIN'), this.translateService.instant('HEADER.POST_SUBTITLE_MAIN'))
+    })
+
     this.loadEntries()
   }
 
@@ -37,14 +45,13 @@ export class MainPage {
    * Carga los apod llamando al service y las añade al array de entries
    */
   loadEntries(){
-    //variables de estado para informar al usuario
     this.isLoading.set(true);
     this.errorMessage.set(null);
 
     this.apodService.getLastSixImages().subscribe({
       next: (response) => {
         console.log('recibiendo datos')
-        this.entries.set(response)
+        this.entries.set(this.orderByDate(response))
         this.isLoading.set(false);
       },
       
@@ -56,5 +63,18 @@ export class MainPage {
     });
   }
 
+  /**
+   * ordena la lista de apod por fecha
+   * @param apodList lista a ordenar
+   * @returns lista ordenada por fecha
+   */
+  orderByDate(apodList:ApodResponse[]){
+    return apodList.sort((a, b) => {
+      const timeA = new Date(a.date).getTime();
+      const timeB = new Date(b.date).getTime();
+
+      return timeB - timeA;
+    });
+  }
 }
 

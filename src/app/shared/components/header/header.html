@@ -2,14 +2,20 @@
   <div class="header-container">
     
     <img class="header-icon" src="images/ICON_NASA.png" alt="Logo de la NASA">
-    <h1 class="header-title">GalaxyView</h1>
+    <h1 class="header-title">{{ 'HEADER.WEB_TITTLE' | translate }}</h1>
   </div>
 
   <nav> 
-    <a [routerLink]= "['/']">Home</a>
-    <a [routerLink]= "['/apod/favourites']">Favourites</a>
-    <a [routerLink]="['/about']">About</a>
+    <a [routerLink]= "['/']">{{ 'HEADER.HOME_NAV' | translate }}</a>
+    <a [routerLink]= "['/apod/favourites']">{{ 'HEADER.FAVOURITES_NAV' | translate }}</a>
+    <a [routerLink]="['/about']">{{ 'HEADER.ABOUT_NAV' | translate }}</a>
   </nav>
+
+  <div class="language-toggle">
+  <button (click)="toggleLanguage()">
+    {{ translate.currentLang === 'en' ? '🇪🇸 ES' : '🇬🇧 EN' }}
+  </button>
+</div>
 
 </header>
 

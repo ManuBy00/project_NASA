@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,14 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('NASA');
+  private translate = inject(TranslateService);
+
+ constructor() {
+    // El idioma de rescate (Si falta un texto en inglés, búscalo en español)
+    this.translate.setFallbackLang('es');
+    
+    // El idioma que el usuario está viendo ahora mismo en pantalla
+    this.translate.use('en'); 
+  }
+  
 }

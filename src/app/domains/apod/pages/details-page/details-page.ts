@@ -3,12 +3,12 @@ import { ApodService } from '../../../../shared/services/apod-service';
 import { ApodResponse } from '../../models/ApodResponse';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FavService } from '../../../../shared/services/fav-service';
-import { Header } from '../../../../shared/components/header/header';
 import { HeaderService } from '../../../../shared/services/header-service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-details-page',
-  imports: [RouterLink],
+  imports: [TranslateModule],
   templateUrl: './details-page.html',
   styleUrl: './details-page.css',
 })

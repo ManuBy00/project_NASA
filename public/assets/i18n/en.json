@@ -1,0 +1,42 @@
+
+{
+  "COMMON": {
+    
+  },
+
+  "HEADER": {
+    "WEB_TITTLE": "GalaxyView",
+
+    "HOME_NAV": "Home",
+    "FAVOURITES_NAV": "Favourites",
+    "ABOUT_NAV": "About",
+
+    "POST_TITTLE_MAIN": "Explore the depths of the galaxy" ,
+    "POST_SUBTITLE_MAIN": "New images every day!",
+    "POST_TITTLE_FAVOURITES": "Check your favourites images" ,
+    "POST_SUBTITLE_FAVOURITES": "You can add an apod to favourites an image so you don't lose it after 6 day"
+  },
+
+  "GALLERY": {
+    
+  },
+
+  "ABOUT": {
+    "TITTLE_1": "The Mission 🚀",
+    "TEXT_1": "This is an astronomy outreach project powered by NASA's Astronomy Picture of the Day (APOD). Our goal is to bridge the gap between complex space data and curious minds, making the cosmos accessible to everyone, one discovery at a time.",
+
+    "TITTLE_2": "The 6-Day Rule 🪐",
+    "TEXT_2": "Space is vast and ever-changing. In our gallery, images are only available for a fleeting 6-day window before they disappear to make room for new wonders. The universe doesn't wait, and neither does our feed!",
+
+    "TITTLE_3": "Favourites ⭐",
+    "TEXT_3": " Don't want to lose a specific piece of the cosmos? You have the power to Favorite your most-loved entries. This allows you to save them permanently in your personal collection, even after they have left the main gallery."
+  },
+
+  "DETAILS": {
+    "DESC": "Description",
+    "DATE": "Date: ",
+    "AUTHOR": "Author: ",
+    "FAV_ADD_BTN": "Add to favourites",
+    "FAV_REMOVE_BTN": "Remove from favourites"
+  }
+}
