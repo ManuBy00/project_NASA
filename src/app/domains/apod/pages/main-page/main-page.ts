@@ -3,8 +3,8 @@ import { Header } from '../../../../shared/components/header/header';
 import { ApodService } from '../../../../shared/services/apod-service';
 import { ApodResponse } from '../../models/ApodResponse';
 import { ApodItem } from '../../components/apod-item/apod-item';
-import { rxResource } from '@angular/core/rxjs-interop';
 import { HeaderService } from '../../../../shared/services/header-service';
+
 
 
 
@@ -27,6 +27,7 @@ export class MainPage {
   //  stream: () => this.apodService.getLastSixImages()
   //});
 
+  //configura los inputs del header
   ngOnInit(): void {
     this.headerService.setHeaderInputs("Explore the depths of the galaxy","New images every day!")
     this.loadEntries()

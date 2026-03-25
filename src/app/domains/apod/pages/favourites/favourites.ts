@@ -17,6 +17,7 @@ export class Favourites {
   headerService = inject(HeaderService)
   favourites = this.favService.favorites;
 
+  //configura los inputs del header
   ngOnInit(){
     this.headerService.setHeaderInputs("Check your favourites images!","You can add an apod to favourites an image so you don't lose it after 6 days")
   }

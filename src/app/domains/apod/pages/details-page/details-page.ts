@@ -1,17 +1,14 @@
-import { Component, computed, inject, Sanitizer, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ApodService } from '../../../../shared/services/apod-service';
 import { ApodResponse } from '../../models/ApodResponse';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { getSafePropertyAccessString } from '@angular/compiler';
-import { DatePipe } from '@angular/common';
 import { FavService } from '../../../../shared/services/fav-service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Header } from '../../../../shared/components/header/header';
 import { HeaderService } from '../../../../shared/services/header-service';
 
 @Component({
   selector: 'app-details-page',
-  imports: [RouterLink, Header],
+  imports: [RouterLink],
   templateUrl: './details-page.html',
   styleUrl: './details-page.css',
 })
@@ -42,7 +39,7 @@ export class DetailsPage {
   }
 
   /**
-   * recoge el parámetro date de la url y llama al método para cargar el apod
+   * recoge el parámetro date de la url y para usarlo como id y cargar el apod. Configura los inputs del header
    */
   ngOnInit(){
     this.route.params.subscribe(params => {
