@@ -3,7 +3,7 @@
   min-height: 100vh;
   
   color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
+  
   --bg-panel: #1a0b2e; /* Púrpura muy oscuro */
   --bg-description: rgba(255, 255, 255, 0.05); 
   --text-muted: #b0b0b0;
@@ -21,15 +21,6 @@
 .apod-details-page {
   display: flex;
   flex-direction: column;
-}
-
-/* Barra Superior */
-.apod-top-bar {
-  background-color: #000; 
-  padding: 1rem 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  background: linear-gradient(135deg, #000 0%, var(--bg-panel) 100%);
-  
 }
 
 /* Contenedor Principal  */
@@ -68,7 +59,7 @@
   max-height: 80vh; /* No más alta que la pantalla */
 }
 
-
+/*columna derecha*/
 .apod-info-column {
   flex: 1;
   display: flex;
@@ -124,9 +115,9 @@
 }
 
 .btn-favourite {
+  font-size: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   outline: none;
-  font-family: inherit;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -134,7 +125,7 @@
   min-width: 240px;
   justify-content: center;
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   border-radius: 12px; 
   background: linear-gradient(135deg, rgba(106, 27, 154, 0.4) 0%, rgba(11, 61, 145, 0.4) 100%);
@@ -155,13 +146,25 @@ a {
   text-decoration: none; 
   color: inherit;        
   cursor: pointer;       
-  outline: none;         
+  outline: none;   
+       
 } 
 
 @media (max-width: 600px){
   .apod-main-container {
     flex-direction: column;
   }
+
+  .apod-title{
+    font-size: 1.5rem;
+  }
+
+  .apod-description-box {
+  padding: 0.5rem;
+  
+}
+
+  
 }
 
 
