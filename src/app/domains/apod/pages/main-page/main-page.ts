@@ -4,6 +4,8 @@ import { ApodService } from '../../../../shared/services/apod-service';
 import { ApodResponse } from '../../models/ApodResponse';
 import { ApodItem } from '../../components/apod-item/apod-item';
 import { rxResource } from '@angular/core/rxjs-interop';
+import { HeaderService } from '../../../../shared/services/header-service';
+
 
 
 @Component({
@@ -14,6 +16,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
 })
 export class MainPage {
   private apodService = inject(ApodService);
+  private headerService = inject(HeaderService)
 
   entries = signal<ApodResponse[]>([]);
   isLoading = signal<boolean>(false);
@@ -25,6 +28,7 @@ export class MainPage {
   //});
 
   ngOnInit(): void {
+    this.headerService.setHeaderInputs("Explore the depths of the galaxy","New images every day!")
     this.loadEntries()
   }
 

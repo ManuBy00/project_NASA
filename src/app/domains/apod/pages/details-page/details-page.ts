@@ -7,6 +7,7 @@ import { DatePipe } from '@angular/common';
 import { FavService } from '../../../../shared/services/fav-service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Header } from '../../../../shared/components/header/header';
+import { HeaderService } from '../../../../shared/services/header-service';
 
 @Component({
   selector: 'app-details-page',
@@ -17,7 +18,7 @@ import { Header } from '../../../../shared/components/header/header';
 export class DetailsPage {
   movieService = inject(ApodService);
   fav = inject(FavService);
-
+  headerService = inject(HeaderService)
 
   //apod del que se piden los detalles
   apod = signal<ApodResponse| null>(null);
@@ -50,6 +51,8 @@ export class DetailsPage {
         this.getApod(date);
       }
     })
+
+    this.headerService.setHeaderInputs("","")
   }
 
   /**
