@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Header } from '../../../../shared/components/header/header';
 import { HeaderService } from '../../../../shared/services/header-service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
@@ -11,9 +10,17 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class About {
 
-  headerService = inject(HeaderService).setHeaderInputs("","")
+  headerService = inject(HeaderService)
+   private translate = inject(TranslateService);
 
+  ngOnInit(){
+    this.translate.stream([
+      'HEADER.POST_TITTLE_ABOUT',
+      'HEADER.POST_SUBTITLE_ABOUT'
 
-
+    ]).subscribe(() => {
+      this.headerService.setHeaderInputs(this.translate.instant('HEADER.POST_TITTLE_ABOUT'), this.translate.instant('HEADER.POST_SUBTITLE_ABOUT'))
+    })
+  }
 
   }

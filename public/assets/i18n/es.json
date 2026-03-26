@@ -13,7 +13,10 @@
     "POST_TITTLE_MAIN": "Explora las profundidades de la galaxia",
     "POST_SUBTITLE_MAIN": "¡Nuevas imágenes cada día!",
     "POST_TITTLE_FAVOURITES": "Revisa tus imágenes favoritas",
-    "POST_SUBTITLE_FAVOURITES": "Puedes añadir una imagen APOD a favoritos para no perderla después de 6 días"
+    "POST_SUBTITLE_FAVOURITES": "Puedes añadir una imagen APOD a favoritos para no perderla después de 6 días",
+
+    "POST_TITTLE_ABOUT": "" ,
+    "POST_SUBTITLE_ABOUT": ""
   },
 
   "GALLERY": {

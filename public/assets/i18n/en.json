@@ -14,7 +14,9 @@
     "POST_TITTLE_MAIN": "Explore the depths of the galaxy" ,
     "POST_SUBTITLE_MAIN": "New images every day!",
     "POST_TITTLE_FAVOURITES": "Check your favourites images" ,
-    "POST_SUBTITLE_FAVOURITES": "You can add an apod to favourites an image so you don't lose it after 6 day"
+    "POST_SUBTITLE_FAVOURITES": "You can add an apod to favourites an image so you don't lose it after 6 day",
+    "POST_TITTLE_ABOUT": "" ,
+    "POST_SUBTITLE_ABOUT": ""
   },
 
   "GALLERY": {
@@ -30,6 +32,7 @@
 
     "TITTLE_3": "Favourites ⭐",
     "TEXT_3": " Don't want to lose a specific piece of the cosmos? You have the power to Favorite your most-loved entries. This allows you to save them permanently in your personal collection, even after they have left the main gallery."
+  
   },
 
   "DETAILS": {

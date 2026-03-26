@@ -13,8 +13,8 @@ export class App {
   private translate = inject(TranslateService);
 
  constructor() {
-    // El idioma de rescate (Si falta un texto en inglés, búscalo en español)
-    this.translate.setFallbackLang('es');
+    // El idioma de rescate (Si falta un texto búscalo en inglés)
+    this.translate.setFallbackLang('en');
     
     // El idioma que el usuario está viendo ahora mismo en pantalla
     this.translate.use('en'); 
