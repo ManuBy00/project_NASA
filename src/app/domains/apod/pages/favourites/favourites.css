@@ -31,3 +31,53 @@
     padding: 2.5rem 0;
     
 }
+
+
+/* Contenedor principal de la búsqueda */
+.search-wrapper {
+  color: #fff;
+  margin-top: 1rem;
+  display: flex;
+  margin-inline: auto; /* Centra horizontalmente el bloque */
+  justify-items: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px; 
+  padding: 6px 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 300px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+
+/* El campo de texto real */
+.search-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Cuando el usuario hace clic o escribe (Focus) */
+.search-wrapper:focus-within {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(106, 27, 154, 0.6); /* Brillo púrpura */
+  box-shadow: 0 0 15px rgba(106, 27, 154, 0.2);
+  transform: scale(1.02);
+  max-width: 350px; /* Se expande un poco al escribir */
+}
+
+.search-wrapper:focus-within .search-icon {
+  color: #fff; /* El icono se ilumina */
+}

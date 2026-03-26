@@ -66,6 +66,14 @@ a {
   cursor: pointer;       
 }
 
+/*Botón idioma*/
+.language-toggle {
+  display: none;
+  align-items: center;
+  padding: 0 1rem;
+  margin-left: auto;
+}
+
 
 @media (min-width: 728px) {
   .post-header {
@@ -81,8 +89,42 @@ a {
   padding-inline-start: 1.8rem;
   display: flex;      
   gap: 1rem;        
+  }
 
+  /*Botón idioma*/
+.language-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  margin-left: auto;
 }
 
+.language-toggle button {
+  background: linear-gradient(135deg, rgba(106, 27, 154, 0.2) 0%, rgba(11, 61, 145, 0.2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 30px; /* Forma de píldora */
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto al pasar el ratón */
+.language-toggle button:hover {
+  background: linear-gradient(135deg, rgba(106, 27, 154, 0.5) 0%, rgba(11, 61, 145, 0.5) 100%);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(106, 27, 154, 0.4); /* Brillo púrpura */
+}
+
+/* Efecto al hacer clic */
+.language-toggle button:active {
+  transform: scale(0.95);
+}
   
 }

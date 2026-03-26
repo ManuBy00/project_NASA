@@ -3,7 +3,7 @@ import { MainPage } from './domains/apod/pages/main-page/main-page';
 import { DetailsPage } from './domains/apod/pages/details-page/details-page';
 import { Favourites } from './domains/apod/pages/favourites/favourites';
 import { About } from './domains/apod/pages/about/about';
-import { Layout } from './shared/layout/layout';
+import { Layout } from './shared/components/layout/layout';
 
 
 export const routes: Routes = [

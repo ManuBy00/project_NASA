@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
-import { Header } from '../components/header/header';
+import { Header } from '../header/header';
 import { Router, RouterOutlet } from '@angular/router';
-import { HeaderService } from '../services/header-service';
+import { HeaderService } from '../../services/header-service';
 
 
 @Component({

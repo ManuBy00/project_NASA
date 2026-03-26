@@ -17,13 +17,13 @@ export class Header {
   phSubtittle = input<string>("")
 
   toggleLanguage() {
-    // 1. Miramos qué idioma está puesto ahora mismo (si no hay, asumimos 'es')
-    const idiomaActual = this.translate.currentLang || 'es';
+    // comprobamos idioma actual
+    const idiomaActual = this.translate.currentLang || 'en';
     
-    // 2. Si es 'es', lo cambiamos a 'en'. Si no, lo cambiamos a 'es'.
+    //se cambia al idioma contrario
     const nuevoIdioma = idiomaActual === 'es' ? 'en' : 'es';
     
-    // 3. Ejecutamos el cambio
+    // se ejecuta el cambio
     this.translate.use(nuevoIdioma);
   }
 

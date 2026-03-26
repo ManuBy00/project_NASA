@@ -26,7 +26,6 @@ export const appConfig: ApplicationConfig = {
       TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
-          // 3. Simplemente le decimos que use la clase directamente
           useClass: TranslateHttpLoader
         }
       })
