@@ -17,7 +17,7 @@ export class Header {
   phSubtittle = input<string>("")
 
   toggleLanguage() {
-    // comprobamos idioma actual
+    // comprobamos idioma actual. Si no hay, ponemos ingles
     const idiomaActual = this.translate.currentLang || 'en';
     
     //se cambia al idioma contrario

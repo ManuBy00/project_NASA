@@ -35,8 +35,7 @@
 /* Columna Izquierda */
 .apod-media-column {
   flex: 1.2; /* Un poco más ancha que la de texto */
-  display: flex;
-  align-items: flex-start; /* No estirar verticalmente */
+  display: block;
   flex-direction: column;
 
 }

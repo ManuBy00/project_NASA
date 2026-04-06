@@ -32,7 +32,6 @@ export class FavService {
 
     // devolvemos la info formateada a json
     return JSON.parse(data);
-    
   }
 
   /**
@@ -52,6 +51,7 @@ export class FavService {
     }
   }
 
+  //comprueba si un apod está en la lista de favoritos
   isFavourite(apod: ApodResponse): boolean{
     const date = apod.date;
     if(this.favorites().some(f => f.date === date)){
