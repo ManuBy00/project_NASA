@@ -154,6 +154,10 @@ a {
     flex-direction: column;
   }
 
+  .apod-info-column{
+    font-size: 0.75rem;
+  }
+
   .apod-title{
     font-size: 1.5rem;
   }
