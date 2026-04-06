@@ -37,7 +37,7 @@ describe('reducer', ()=>{
     store = TestBed.inject(Store);
   });
 
-  it('recibe acción load, devuelve state con loading true', ()=> {
+  it('recibe acción load request, devuelve state con loading true y loadFromApi se llama una vez', ()=> {
     //arrange
   
   let actionRequest:apodActions = {type: '[APOD] Load Request'};
@@ -54,9 +54,9 @@ describe('reducer', ()=>{
   expect(espia).toHaveBeenCalled();
   });
 
-  it('recibe acción load request, devuelve loading false y payload.', ()=> {
+  it('recibe acción load success, devuelve loading false y payload.', ()=> {
     //arrange
- 
+    
     let actionSuccess: apodActions = { 
     type: '[APOD] Load Success', 
     payload: [] 
@@ -68,6 +68,7 @@ describe('reducer', ()=>{
 
   //assert
   expect(store.isLoading()).toBeFalsy();
+  expect(store.getApodList()).toBe(actionSuccess.payload)
  
   })
 
