@@ -28,5 +28,6 @@ describe('FavService', () => {
 
   //comprobamos que se haya añadido
   expect(service.isFavourite(mockApod)).toBeTruthy();
+  expect(service.isFavourite(mockApod)).toBeTruthy();
   });
 });
