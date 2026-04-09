@@ -8,64 +8,67 @@ import { provideRouter } from '@angular/router';
 import { ApodResponse } from '../../models/ApodResponse';
 import { of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { signal } from '@angular/core';
 
 describe('DetailsPage', () => {
   let component: DetailsPage;
   let fixture: ComponentFixture<DetailsPage>;
-  let service: ApodService; // El motor de Vitest lo llenará en el beforeEach
-  let headerService: HeaderService;
+  
+  // 1. Definimos los Mocks como objetos con vi.fn()
+  const mockApodService = {
+    getOneApod: vi.fn()
+  };
+
+  const mockHeaderService = {
+    setHeaderInputs: vi.fn()
+  };
+
+  const mockFavService = {
+    favorites: signal<ApodResponse[]>([]), 
+    isFavourite: vi.fn().mockReturnValue(false)
+  };
 
   beforeEach(async () => {
+    mockApodService.getOneApod.mockReset();
+    mockHeaderService.setHeaderInputs.mockReset();
+
     await TestBed.configureTestingModule({
       imports: [
         DetailsPage, 
         TranslateModule.forRoot() 
       ],
       providers: [
-        ApodService, 
-        HeaderService, 
-        FavService, 
+        { provide: ApodService, useValue: mockApodService },
+        { provide: HeaderService, useValue: mockHeaderService },
+        { provide: FavService, useValue: mockFavService },
         provideRouter([]),
         {
-        provide: ActivatedRoute,
-        useValue: {
-          params: of({ date: '2026-04-06' }) 
-        }
-      },
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({ date: '2026-04-06' }) 
+          }
+        },
       ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DetailsPage);
     component = fixture.componentInstance;
     
-    // Extraemos el servicio del inyector de TestBed
-    service = TestBed.inject(ApodService);
-    headerService = TestBed.inject(HeaderService)
-    
-    fixture.detectChanges(); // Primera detección de cambios
+    // 3. No detectamos cambios todavía si queremos testear el ngOnInit manualmente en algún test
+    // o lo hacemos aquí para el estado inicial.
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("getApod() obtiene el apod con la fecha indicada", () => {
+  it("getApod() obtiene el apod con la fecha indicada y actualiza el estado", () => {
     // ARRANGE
     const date = "2026-04-06";
-    const mockApod: ApodResponse = {
-      date: date,
-      title: 'L',
-      explanation: 'Een.',
-      url: 'h.jpg',
-      hdurl: 'dd.jpg',
-      media_type: 'image',
-      copyright: 'NASA',
-      service_version: 'v1',
-      thumbnail_url: 'hd'
-    };
-
-    // Espiamos el servicio antes de ejecutar la acción
-    const spy = vi.spyOn(service, 'getOneApod').mockReturnValue(of(mockApod));
+    const mockApod = { date: date, title: 'L' } as ApodResponse;
+    
+    // Configuramos lo que debe devolver el mock en este test específico
+    mockApodService.getOneApod.mockReturnValue(of(mockApod));
 
     // ACT
     component.getApod(date);
@@ -74,20 +77,21 @@ describe('DetailsPage', () => {
     // ASSERT
     expect(component.apod()?.date).toBe(date);
     expect(component.isLoading()).toBe(false);
-    expect(spy).toHaveBeenCalledWith(date);
+    expect(mockApodService.getOneApod).toHaveBeenCalledWith(date);
   });
 
-  it("Al inicializar se llama a la api para obtener el apod y se llama al headerService con parametros vacíos", ()=>{
-    //arrange
+  it("Al inicializar (ngOnInit) se llama a getApod con la fecha del route y limpia el header", () => {
+    // ARRANGE
     const date = '2026-04-06';
-    const spy = vi.spyOn(component, "getApod");
-    const headerSpy = vi.spyOn(headerService, 'setHeaderInputs');
+    // Espiamos el método del componente (opcional, pero útil si quieres verificar la llamada interna)
+    const getApodSpy = vi.spyOn(component, 'getApod');
+    mockApodService.getOneApod.mockReturnValue(of({})); // Para que el subscribe no falle
 
-    //act
-    component.ngOnInit();
+    // ACT
+    fixture.detectChanges(); // Esto dispara el ngOnInit
 
-    //assert
-    expect(spy).toHaveBeenCalledWith(date);
-    expect(headerSpy).toHaveBeenCalledWith("", "");
-  })
+    // ASSERT
+    expect(getApodSpy).toHaveBeenCalledWith(date);
+    expect(mockHeaderService.setHeaderInputs).toHaveBeenCalledWith("", "");
+  });
 });
