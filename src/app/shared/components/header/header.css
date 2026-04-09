@@ -29,9 +29,9 @@
 
 .post-header{
     display: none;
-    height: 11rem;
+    height: 10rem;
     background-color: #111827;
-    padding: 1.3rem;
+    padding: 1rem;
 }
 
 .tittle {
@@ -127,4 +127,10 @@ a {
   transform: scale(0.95);
 }
   
+}
+@media (min-width: 728px) and (max-width: 1023px) {
+
+.subtittle {
+    display: none; /* Esto ocultará el subtítulo de tablets en adelante */
+  }
 }
