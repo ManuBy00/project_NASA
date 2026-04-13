@@ -14,7 +14,7 @@ describe('DetailsPage', () => {
   let component: DetailsPage;
   let fixture: ComponentFixture<DetailsPage>;
   
-  // 1. Definimos los Mocks como objetos con vi.fn()
+  
   const mockApodService = {
     getOneApod: vi.fn()
   };
@@ -53,9 +53,6 @@ describe('DetailsPage', () => {
 
     fixture = TestBed.createComponent(DetailsPage);
     component = fixture.componentInstance;
-    
-    // 3. No detectamos cambios todavía si queremos testear el ngOnInit manualmente en algún test
-    // o lo hacemos aquí para el estado inicial.
   });
 
   it('should create', () => {
@@ -83,9 +80,9 @@ describe('DetailsPage', () => {
   it("Al inicializar (ngOnInit) se llama a getApod con la fecha del route y limpia el header", () => {
     // ARRANGE
     const date = '2026-04-06';
-    // Espiamos el método del componente (opcional, pero útil si quieres verificar la llamada interna)
+    // Espiamos el método del componente 
     const getApodSpy = vi.spyOn(component, 'getApod');
-    mockApodService.getOneApod.mockReturnValue(of({})); // Para que el subscribe no falle
+    mockApodService.getOneApod.mockReturnValue(of({})); 
 
     // ACT
     fixture.detectChanges(); // Esto dispara el ngOnInit

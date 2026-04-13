@@ -26,7 +26,7 @@ export class Favourites {
   //PALABRA QUE FILTRA
   searchTerm = signal('');
 
-  //LISTA FILTRADA. SI NO TIENE NINGÚN INPUT, DEVUELVE LA LISTA SIN FILTRAR
+  //LISTA FILTRADA POR NOMBRE. SI NO TIENE NINGÚN INPUT, DEVUELVE LA LISTA SIN FILTRAR
   filteredFav = computed(() => {
     const wordToSearch = this.searchTerm().toLocaleLowerCase();
     const list = this.favourites();

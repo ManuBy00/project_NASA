@@ -1,15 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-
 import { Store } from './store';
-import { inject } from 'vitest';
-
 import { apodActions } from './apodActions';
-
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { Action } from 'rxjs/internal/scheduler/Action';
-import { initialState } from './apodState';
-
 
 
 describe('Store', () => {
@@ -39,55 +32,49 @@ describe('reducer', ()=>{
 
   it('recibe acción load request, devuelve state con loading true y loadFromApi se llama una vez', ()=> {
     //arrange
-  
-  let actionRequest:apodActions = {type: '[APOD] Load Request'};
-  //let actionSuccess:apodActions = {type: '[APOD] Load Success'};
-  //let actionError:apodActions = {type: '[APOD] Load Failure'};
-  //let actionClear:apodActions = {type: '[APOD] Clear List'};
+    let actionRequest:apodActions = {type: '[APOD] Load Request'};
 
-  //act
-  const espia = vi.spyOn(store as any, 'loadFromApi');
-  store.dispatch(actionRequest)
+    //act
+    const espia = vi.spyOn(store, 'loadFromApi');
+    store.dispatch(actionRequest)
 
-  //assert
-  expect(store.isLoading()).toBeTruthy()
-  expect(espia).toHaveBeenCalled();
+    //assert
+    expect(store.isLoading()).toBeTruthy()
+    expect(espia).toHaveBeenCalled();
   });
 
   it('recibe acción load success, devuelve loading false y payload.', ()=> {
     //arrange
     
     let actionSuccess: apodActions = { 
-    type: '[APOD] Load Success', 
-    payload: [] 
-  };
+      type: '[APOD] Load Success', 
+      payload: [] 
+    };
   
-  
-  store.dispatch(actionSuccess)
+    //act
+    store.dispatch(actionSuccess)
 
 
-  //assert
-  expect(store.isLoading()).toBeFalsy();
-  expect(store.getApodList()).toBe(actionSuccess.payload)
+    //assert
+    expect(store.isLoading()).toBeFalsy();
+    expect(store.getApodList()).toBe(actionSuccess.payload)
  
   })
 
   it('debería guardar el mensaje de error y apagar loading al fallar la API', () => {
-  // ARRANGE
-  const errorMessage = 'Error 403: Forbidden';
-  const actionError: apodActions = { 
+    // ARRANGE
+    const errorMessage = 'Error 403: Forbidden';
+    const actionError: apodActions = { 
     type: '[APOD] Load Failure', 
     error: errorMessage 
   }
 
-  // ACT
-  store.dispatch(actionError)
+    // ACT
+    store.dispatch(actionError)
 
-  // ASSERT
-  expect(store.isLoading()).toBe(false);
-  expect(store.getErrorMessage()).toBe(errorMessage);
+    // ASSERT
+    expect(store.isLoading()).toBe(false);
+    expect(store.getErrorMessage()).toBe(errorMessage);
 });
-  
-
 
 })

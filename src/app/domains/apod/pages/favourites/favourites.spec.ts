@@ -58,7 +58,6 @@ describe('Favourites Component', () => {
   });
 
   it('ngOnInit: debería configurar el header correctamente', () => {
-    // Verificamos el espía que definimos arriba
     expect(mockHeaderService.setHeaderInputs).toHaveBeenCalled();
   });
 

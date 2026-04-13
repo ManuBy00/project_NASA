@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './details-page.css',
 })
 export class DetailsPage {
-  movieService = inject(ApodService);
+  apodService = inject(ApodService);
   fav = inject(FavService);
   headerService = inject(HeaderService)
 
@@ -39,7 +39,8 @@ export class DetailsPage {
   }
 
   /**
-   * recoge el parámetro date de la url y para usarlo como id y cargar el apod. Configura los inputs del header
+   * recoge el parámetro date de la url y para usarlo como id y cargar el apod.
+   *  Configura los inputs del header
    */
   ngOnInit(){
     this.route.params.subscribe(params => {
@@ -58,7 +59,7 @@ export class DetailsPage {
    */
   getApod(date:string){
     this.isLoading.set(true);
-    this.movieService.getOneApod(date).subscribe({
+    this.apodService.getOneApod(date).subscribe({
       next: (newApod) => {
         this.apod.set(newApod);
         this.isLoading.set(false);

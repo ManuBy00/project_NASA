@@ -20,7 +20,8 @@ export class Store {
 
 
   /**
-   * recibe una acción del componente, se la manda al reducer y guarda el nuevo estado del apod. Si la acción es un loadRequest, la ejecuta a través del effect.
+   * recibe una acción del componente, se la manda al reducer y guarda el nuevo estado del apod. 
+   * Si la acción es un loadRequest, la ejecuta a través del effect.
    * @param action acción a ejecutar
    */
   public dispatch(action: apodActions){
@@ -33,7 +34,7 @@ export class Store {
   }
 
   /**
-   * Effect. Hace la petición a la api, y actualiza el estado mediante el dispatch
+   * Effect. Hace la petición a la api, y lanza la acción load success al terminar
    */
   loadFromApi(){ //EFFECT
     this.apodService.getLastSixImages().subscribe({

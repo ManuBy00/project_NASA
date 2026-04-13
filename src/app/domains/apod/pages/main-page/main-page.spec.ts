@@ -14,6 +14,8 @@ import { ApodResponse } from '../../models/ApodResponse';
 describe('MainPage', () => {
   let component: MainPage;
   let fixture: ComponentFixture<MainPage>;
+
+  //mocks de servicios
   const mockStore = {
     dispatch: vi.fn(),
     getApodList: signal<ApodResponse[]>([]),
@@ -55,9 +57,6 @@ describe('MainPage', () => {
 
   it("NgOnInit. El componente se incicializa correctamente llamando al store y el headerservice", () => {
     
-    //arrange
-
-    
     //act
     fixture.detectChanges();
     
@@ -65,7 +64,6 @@ describe('MainPage', () => {
     expect(component.entries().length).toBe(0)
     expect(mockHeaderService.setHeaderInputs).toHaveBeenCalledWith("HEADER.POST_TITTLE_MAIN", "HEADER.POST_SUBTITLE_MAIN");
     expect(mockStore.dispatch).toHaveBeenCalledWith({ type: '[APOD] Load Request' });
-    
     
   });
 });

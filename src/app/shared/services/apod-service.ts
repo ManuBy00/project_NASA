@@ -20,9 +20,6 @@ export class ApodService {
   }
   )
 
-
-
-  
   getLastSixImages():Observable<ApodResponse[]>{
     return this.http.get<ApodResponse[]>(`${this.baseUrl}`, {
       params: {
